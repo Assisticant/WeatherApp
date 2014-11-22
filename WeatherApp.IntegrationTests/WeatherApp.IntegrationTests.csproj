@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{298ACB91-8A0F-45E7-AA4E-E87D8CF44EC7}</ProjectGuid>
+    <ProjectGuid>{49C48858-86CB-4AEC-B743-47300D94A946}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>WeatherApp.UnitTests</RootNamespace>
-    <AssemblyName>WeatherApp.UnitTests</AssemblyName>
+    <RootNamespace>WeatherApp.IntegrationTests</RootNamespace>
+    <AssemblyName>WeatherApp.IntegrationTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -34,7 +34,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
+    <Compile Include="C:\Projects\WeatherApp\WeatherApp.IntegrationTests\WeatherApiTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
