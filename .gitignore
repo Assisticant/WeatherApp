@@ -1,4 +1,5 @@
 app.config
+WeatherApp.Android/Resources/values/Keys.xml
 packages/
 NuGet/Core/lib/
 NuGet/Forms/lib/
