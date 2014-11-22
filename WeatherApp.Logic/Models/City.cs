@@ -28,9 +28,9 @@ namespace WeatherApp.Logic.Models
 			return forecast;
 		}
 
-		public void RemoveForecast(Forecast forecast)
+		public void ClearForecasts()
 		{
-			_forecasts.Remove(forecast);
+			_forecasts.Clear();
 		}
 	}
 }

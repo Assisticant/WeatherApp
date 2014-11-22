@@ -1,3 +1,4 @@
+app.config
 packages/
 NuGet/Core/lib/
 NuGet/Forms/lib/
