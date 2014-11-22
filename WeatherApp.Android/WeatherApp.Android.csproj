@@ -43,10 +43,10 @@
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="Assisticant.Android">
-      <HintPath>..\packages\Assisticant.Starter.1.0.11\lib\MonoAndroid\Assisticant.Android.dll</HintPath>
+      <HintPath>..\packages\Assisticant.Starter.1.0.12\lib\MonoAndroid\Assisticant.Android.dll</HintPath>
     </Reference>
     <Reference Include="Assisticant">
-      <HintPath>..\packages\Assisticant.Starter.1.0.11\lib\MonoAndroid\Assisticant.dll</HintPath>
+      <HintPath>..\packages\Assisticant.Starter.1.0.12\lib\MonoAndroid\Assisticant.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

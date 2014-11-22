@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Threading.Tasks;
+using WeatherApp.Logic.Services;
 
 namespace WeatherApp.IntegrationTests
 {
@@ -10,7 +11,7 @@ namespace WeatherApp.IntegrationTests
 		[Test()]
 		public async Task CanGetCurrentWeather()
 		{
-			var serviceAgent = new WeatherApp.Logic.WeatherServiceAgent();
+			var serviceAgent = new WeatherServiceAgent();
 		}
 	}
 }

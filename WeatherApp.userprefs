@@ -1,8 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="WeatherApp.IntegrationTests\Test.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WeatherApp.Logic\Models\Document.cs">
     <Files>
-      <File FileName="WeatherApp.IntegrationTests\Test.cs" Line="19" Column="19" />
+      <File FileName="C:\Projects\WeatherApp\WeatherApp.IntegrationTests\WeatherApiTest.cs" Line="59" Column="59" />
+      <File FileName="WeatherApp.Logic\Services\WeatherServiceAgent.cs" Line="3" Column="3" />
+      <File FileName="WeatherApp.Logic\Models\City.cs" Line="30" Column="30" />
+      <File FileName="WeatherApp.Logic\Models\Document.cs" Line="21" Column="21" />
+      <File FileName="WeatherApp.Logic\Models\Forecast.cs" Line="34" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

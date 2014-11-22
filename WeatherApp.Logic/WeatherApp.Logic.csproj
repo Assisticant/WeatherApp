@@ -41,4 +41,12 @@
     <Folder Include="Services\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Assisticant">
+      <HintPath>..\packages\Assisticant.Starter.1.0.12\lib\portable-net45+win+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Assisticant.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
 </Project>
