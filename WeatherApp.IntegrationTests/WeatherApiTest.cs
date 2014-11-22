@@ -2,6 +2,8 @@
 using System;
 using System.Threading.Tasks;
 using WeatherApp.Logic.Services;
+using WeatherApp.Logic.Models;
+using System.Linq;
 
 namespace WeatherApp.IntegrationTests
 {
@@ -11,7 +13,14 @@ namespace WeatherApp.IntegrationTests
 		[Test()]
 		public async Task CanGetCurrentWeather()
 		{
-			var serviceAgent = new WeatherServiceAgent();
+			var document = new Document();
+			var serviceAgent = new WeatherServiceAgent(document);
+
+			var dallas = document.NewCity();
+			dallas.Name = "Dallas";
+			await serviceAgent.Refresh();
+
+			Assert.AreEqual(7, dallas.Forecasts.Count());
 		}
 	}
 }
