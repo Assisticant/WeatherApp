@@ -75,4 +75,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\Keys.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Readme.txt" />
+  </ItemGroup>
 </Project>
