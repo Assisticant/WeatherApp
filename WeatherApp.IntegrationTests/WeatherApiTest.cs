@@ -13,7 +13,7 @@ namespace WeatherApp.IntegrationTests
 	public partial class WeatherApiTest
 	{
 		[Test()]
-		public async Task CanGetCurrentWeather()
+		public void CanGetCurrentWeather()
 		{
 			var document = new Document();
 			var http = new HttpClient();
@@ -24,7 +24,7 @@ namespace WeatherApp.IntegrationTests
 
 			var dallas = document.NewCity();
 			dallas.Name = "Dallas";
-			await serviceAgent.Refresh();
+			serviceAgent.Refresh();
 
 			Assert.AreEqual(7, dallas.Forecasts.Count());
 		}

@@ -18,28 +18,8 @@ namespace WeatherApp.Logic.Services
 			_http = http;
 		}
 
-		public async Task Refresh()
+		public void Refresh()
 		{
-			foreach (var city in _document.Cities)
-			{
-				string location = city.Name;
-				var query = String.Format(
-					"api.php?location={0}",
-					Uri.EscapeDataString(location));
-				var response = await _http.GetStringAsync(query);
-				var forecastRecords = JsonConvert.DeserializeObject<IEnumerable<ForecastRecord>>(
-					response);
-
-				city.ClearForecasts();
-				foreach (var record in forecastRecords)
-				{
-					var forecast = city.NewForecast();
-					forecast.DayOfWeek = ConvertDayOfWeek(record.day_of_week);
-					forecast.High = record.high;
-					forecast.Low = record.low;
-					forecast.Condition = record.condition;
-				}
-			}
 		}
 
 		private DayOfWeek ConvertDayOfWeek(string shortName)
@@ -61,16 +41,6 @@ namespace WeatherApp.Logic.Services
 
 			throw new ArgumentException(String.Format(
 				"Unknown day short name {0}.", shortName));
-		}
-
-		class ForecastRecord
-		{
-			public string day_of_week { get; set; }
-			public decimal high { get; set; }
-			public decimal low { get; set; }
-			public int high_celsius { get; set; }
-			public int low_celsius { get; set; }
-			public string condition { get; set; }
 		}
 	}
 }
