@@ -35,7 +35,6 @@ namespace WeatherApp.Logic.ViewModels
             // For now, initialize the document to one city.
             var city = _document.NewCity();
             city.Name = "Dallas";
-            _citySelection.SelectedCity = city;
         }
 
         public MainViewModel Main

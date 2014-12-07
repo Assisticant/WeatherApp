@@ -50,6 +50,8 @@ namespace WeatherApp.iOS
         {
             base.ViewWillAppear(animated);
 
+            _viewModel.SelectedCityHeader = null;
+
             _bindings.BindItems(
                 TableView,
                 () => _viewModel.CityHeaders,
@@ -61,6 +63,10 @@ namespace WeatherApp.iOS
                         cell.TextLabel,
                         () => city.Name);
                 });
+
+            _bindings.Bind(
+                () => _viewModel.SelectedCityHeader,
+                cityHeader => OnSelected(cityHeader));
         }
 
         public override void ViewDidDisappear(bool animated)
@@ -70,12 +76,10 @@ namespace WeatherApp.iOS
             base.ViewDidDisappear(animated);
         }
 
-        public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
+        private void OnSelected(CityHeaderViewModel cityHeader)
         {
-            if (segue.Identifier == "showDetail")
-            {
-                var indexPath = TableView.IndexPathForSelectedRow;
-            }
+            if (cityHeader != null)
+                PerformSegue("showDetail", this);
         }
     }
 }

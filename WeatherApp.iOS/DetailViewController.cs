@@ -4,33 +4,18 @@ using System.Collections.Generic;
 
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using WeatherApp.Logic.ViewModels;
+using Assisticant.Binding;
 
 namespace WeatherApp.iOS
 {
     public partial class DetailViewController : UIViewController
     {
-        object detailItem;
+        private CityViewModel _viewModel = ViewModelLocator.Instance.City;
+        private BindingManager _bindings = new BindingManager();
 
         public DetailViewController(IntPtr handle) : base(handle)
         {
-        }
-
-        public void SetDetailItem(object newDetailItem)
-        {
-            if (detailItem != newDetailItem)
-            {
-                detailItem = newDetailItem;
-
-                // Update the view
-                ConfigureView();
-            }
-        }
-
-        void ConfigureView()
-        {
-            // Update the user interface for the detail item
-            if (IsViewLoaded && detailItem != null)
-                detailDescriptionLabel.Text = detailItem.ToString();
         }
 
         public override void DidReceiveMemoryWarning()
@@ -44,9 +29,24 @@ namespace WeatherApp.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            
-            // Perform any additional setup after loading the view, typically from a nib.
-            ConfigureView();
+
+            _bindings.Initialize(this);
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            _bindings.BindText(
+                detailDescriptionLabel,
+                () => _viewModel.Name);
+        }
+
+        public override void ViewDidDisappear(bool animated)
+        {
+            _bindings.Unbind();
+
+            base.ViewDidDisappear(animated);
         }
     }
 }
