@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Logic.Models;
 using WeatherApp.Logic.Services;
+using Assisticant.Fields;
 
 namespace WeatherApp.Logic.ViewModels
 {
@@ -12,7 +13,9 @@ namespace WeatherApp.Logic.ViewModels
     {
         private readonly City _city;
         private readonly WeatherServiceAgent _weatherServiceAgent;
-        
+
+        private Observable<string> _message = new Observable<string>();
+
         public CityViewModel(City city, WeatherServiceAgent weatherServiceAgent)
         {
             _city = city;
@@ -34,9 +37,17 @@ namespace WeatherApp.Logic.ViewModels
             }
         }
 
-        public void Refresh()
+        public async void Refresh()
         {
-            _weatherServiceAgent.Refresh();
+            try
+            {
+                await _weatherServiceAgent.Refresh();
+                _message.Value = null;
+            }
+            catch (Exception x)
+            {
+                _message.Value = x.Message;
+            }
         }
     }
 }

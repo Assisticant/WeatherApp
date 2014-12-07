@@ -37,6 +37,8 @@ namespace WeatherApp.iOS
         {
             base.ViewWillAppear(animated);
 
+            _viewModel.Refresh();
+
             _bindings.Bind(
                 () => _viewModel.Name,
                 value => this.Title = value);
@@ -49,6 +51,7 @@ namespace WeatherApp.iOS
                     bindings.BindText(
                         cell.TextLabel,
                         () => forecast.Text);
+                if (cell.DetailTextLabel != null)
                     bindings.BindText(
                         cell.DetailTextLabel,
                         () => forecast.Description);
