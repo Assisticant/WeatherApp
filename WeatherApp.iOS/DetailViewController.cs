@@ -9,7 +9,7 @@ using Assisticant.Binding;
 
 namespace WeatherApp.iOS
 {
-    public partial class DetailViewController : UIViewController
+    public partial class DetailViewController : UITableViewController
     {
         private CityViewModel _viewModel = ViewModelLocator.Instance.City;
         private BindingManager _bindings = new BindingManager();
@@ -37,9 +37,22 @@ namespace WeatherApp.iOS
         {
             base.ViewWillAppear(animated);
 
-            _bindings.BindText(
-                detailDescriptionLabel,
-                () => _viewModel.Name);
+            _bindings.Bind(
+                () => _viewModel.Name,
+                value => this.Title = value);
+
+            _bindings.BindItems(
+                TableView,
+                () => _viewModel.Forecasts,
+                (cell, forecast, bindings) =>
+                {
+                    bindings.BindText(
+                        cell.TextLabel,
+                        () => forecast.Text);
+                    bindings.BindText(
+                        cell.DetailTextLabel,
+                        () => forecast.Description);
+                });
         }
 
         public override void ViewDidDisappear(bool animated)
