@@ -18,6 +18,14 @@ namespace WeatherApp.Logic.ViewModels
             _city = city;
         }
 
+        public City City
+        {
+            get
+            {
+                return _city;
+            }
+        }
+
         public string Name
         {
             get

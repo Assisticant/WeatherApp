@@ -21,24 +21,28 @@ namespace WeatherApp.Logic.ViewModels
 
         private readonly Document _document;
         private readonly WeatherServiceAgent _weatherServiceAgent;
+        private readonly CitySelection _citySelection;
 
         private ViewModelLocator(string mashapeKey)
         {
             _document = new Document();
+            _citySelection = new CitySelection();
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("X-Mashape-Key", mashapeKey);
             httpClient.BaseAddress = new Uri("https://george-vustrey-weather.p.mashape.com/", UriKind.Absolute);
             _weatherServiceAgent = new WeatherServiceAgent(_document, httpClient);
 
             // For now, initialize the document to one city.
-            _document.NewCity().Name = "Dallas";
+            var city = _document.NewCity();
+            city.Name = "Dallas";
+            _citySelection.SelectedCity = city;
         }
 
         public MainViewModel Main
         {
             get
             {
-                return new MainViewModel(_document);
+                return new MainViewModel(_document, _citySelection);
             }
         }
 
@@ -46,7 +50,10 @@ namespace WeatherApp.Logic.ViewModels
         {
             get
             {
-                return new CityViewModel(_document.Cities.Single(), _weatherServiceAgent);
+                if (_citySelection.SelectedCity == null)
+                    return null;
+
+                return new CityViewModel(_citySelection.SelectedCity, _weatherServiceAgent);
             }
         }
     }

@@ -53,6 +53,8 @@ namespace WeatherApp.iOS
             _bindings.BindItems(
                 TableView,
                 () => _viewModel.CityHeaders,
+                () => _viewModel.SelectedCityHeader,
+                value => _viewModel.SelectedCityHeader = value,
                 (cell, city, bindings) =>
                 {
                     bindings.BindText(
