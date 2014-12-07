@@ -84,6 +84,12 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="Assisticant">
+      <HintPath>..\packages\Assisticant.Starter.1.0.12\lib\MonoTouch\Assisticant.dll</HintPath>
+    </Reference>
+    <Reference Include="Assisticant.iOS">
+      <HintPath>..\packages\Assisticant.Starter.1.0.12\lib\MonoTouch\Assisticant.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -91,6 +97,7 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -108,4 +115,10 @@
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherApp.Logic\WeatherApp.Logic.csproj">
+      <Project>{31C6CF10-A364-4095-B8C4-875CB69088BD}</Project>
+      <Name>WeatherApp.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

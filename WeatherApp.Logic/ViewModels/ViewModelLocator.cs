@@ -34,6 +34,14 @@ namespace WeatherApp.Logic.ViewModels
             _document.NewCity().Name = "Dallas";
         }
 
+        public MainViewModel Main
+        {
+            get
+            {
+                return new MainViewModel(_document);
+            }
+        }
+
         public CityViewModel City
         {
             get
