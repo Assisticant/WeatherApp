@@ -20,7 +20,7 @@ namespace WeatherApp.IntegrationTests
 			string mashapeKey = ConfigurationManager.AppSettings["mashape-key"];
 			http.DefaultRequestHeaders.Add("X-Mashape-Key", mashapeKey);
 			http.BaseAddress = new Uri("https://george-vustrey-weather.p.mashape.com/", UriKind.Absolute);
-			var serviceAgent = new WeatherServiceAgent(document, http);
+            WeatherServiceAgent serviceAgent = new WeatherServiceAgent(document, http);
 
 			var dallas = document.NewCity();
 			dallas.Name = "Dallas";
