@@ -6,6 +6,7 @@ namespace WeatherApp.Logic.Models
     public class CitySelection
     {
         private Observable<City> _selectedCity = new Observable<City>();
+        private Observable<string> _cityName = new Observable<string>();
 
         public City SelectedCity
         {
@@ -16,6 +17,18 @@ namespace WeatherApp.Logic.Models
             set
             {
                 _selectedCity.Value = value;
+            }
+        }
+
+        public string CityName
+        {
+            get
+            {
+                return _cityName.Value;
+            }
+            set
+            {
+                _cityName.Value = value;
             }
         }
     }

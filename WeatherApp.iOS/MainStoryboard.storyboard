@@ -142,6 +142,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="107"/>
                                 </constraints>
+                                <connections>
+                                    <segue destination="84" kind="unwind" unwindAction="UnwindToMaster:" id="231"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="93" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="175" y="210" width="56" height="30"/>
@@ -173,6 +176,10 @@
                             <constraint firstItem="93" firstAttribute="leading" secondItem="92" secondAttribute="trailing" constant="73" id="215"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="CityName" destination="104" id="name-outlet-104"/>
+                        <outlet property="OkButton" destination="92" id="name-outlet-92"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="83" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="84" userLabel="Exit" sceneMemberID="exit"/>

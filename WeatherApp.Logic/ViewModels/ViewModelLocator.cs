@@ -60,7 +60,7 @@ namespace WeatherApp.Logic.ViewModels
         {
             get
             {
-                return new NewCityViewModel();
+                return new NewCityViewModel(_document, _citySelection);
             }
         }
     }
