@@ -23,6 +23,7 @@ namespace WeatherApp.iOS
 
         void AddNewItem(object sender, EventArgs args)
         {
+            PerformSegue("newCity", this);
         }
 
         public override void DidReceiveMemoryWarning()

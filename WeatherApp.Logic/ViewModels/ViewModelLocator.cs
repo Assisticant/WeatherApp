@@ -55,5 +55,13 @@ namespace WeatherApp.Logic.ViewModels
                 return new CityViewModel(_citySelection.SelectedCity, _weatherServiceAgent);
             }
         }
+
+        public NewCityViewModel NewCity
+        {
+            get
+            {
+                return new NewCityViewModel();
+            }
+        }
     }
 }

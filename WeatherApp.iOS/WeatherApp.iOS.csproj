@@ -110,6 +110,10 @@
     <Compile Include="DetailViewController.designer.cs">
       <DependentUpon>DetailViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewCityViewController.cs" />
+    <Compile Include="NewCityViewController.designer.cs">
+      <DependentUpon>NewCityViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
