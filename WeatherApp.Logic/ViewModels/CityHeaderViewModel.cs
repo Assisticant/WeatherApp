@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Logic.Models;
 using WeatherApp.Logic.Services;
-using System.Net.Http;
 
 namespace WeatherApp.Logic.ViewModels
 {

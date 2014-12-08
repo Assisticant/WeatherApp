@@ -1,6 +1,7 @@
 ﻿using System;
 using Assisticant.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace WeatherApp.Logic.Models
 {

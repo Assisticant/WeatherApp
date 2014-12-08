@@ -84,12 +84,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="Assisticant">
-      <HintPath>..\packages\Assisticant.Starter.1.0.12\lib\MonoTouch\Assisticant.dll</HintPath>
-    </Reference>
-    <Reference Include="Assisticant.iOS">
-      <HintPath>..\packages\Assisticant.Starter.1.0.12\lib\MonoTouch\Assisticant.iOS.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -97,7 +91,6 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -123,6 +116,14 @@
     <ProjectReference Include="..\WeatherApp.Logic\WeatherApp.Logic.csproj">
       <Project>{31C6CF10-A364-4095-B8C4-875CB69088BD}</Project>
       <Name>WeatherApp.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portable\Assisticant.csproj">
+      <Project>{8B6EB900-35B0-41DA-A8DF-72E2752942A3}</Project>
+      <Name>Assisticant</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iOS\Assisticant.iOS.csproj">
+      <Project>{45977155-1C67-4865-BFD0-CD3A26543B5B}</Project>
+      <Name>Assisticant.iOS</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

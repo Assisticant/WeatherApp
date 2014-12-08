@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Logic.Models;
 using WeatherApp.Logic.Services;
-using System.Net.Http;
 
 namespace WeatherApp.Logic.ViewModels
 {
@@ -27,10 +26,7 @@ namespace WeatherApp.Logic.ViewModels
         {
             _document = new Document();
             _citySelection = new CitySelection();
-            var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("X-Mashape-Key", mashapeKey);
-            httpClient.BaseAddress = new Uri("https://george-vustrey-weather.p.mashape.com/", UriKind.Absolute);
-            _weatherServiceAgent = new WeatherServiceAgent(_document, httpClient);
+            _weatherServiceAgent = new WeatherServiceAgent(_document);
 
             // For now, initialize the document to one city.
             var city = _document.NewCity();

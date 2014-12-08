@@ -4,10 +4,10 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{31C6CF10-A364-4095-B8C4-875CB69088BD}</ProjectGuid>
+    <ProjectGuid>{8B6EB900-35B0-41DA-A8DF-72E2752942A3}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>WeatherApp.Logic</RootNamespace>
-    <AssemblyName>WeatherApp.Logic</AssemblyName>
+    <RootNamespace>Assisticant</RootNamespace>
+    <AssemblyName>Assisticant</AssemblyName>
     <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
@@ -20,35 +20,38 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <DocumentationFile>bin\Debug\Assisticant.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <DocumentationFile>bin\Release\Assisticant.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\WeatherServiceAgent.cs" />
-    <Compile Include="Models\Document.cs" />
-    <Compile Include="Models\City.cs" />
-    <Compile Include="Models\Forecast.cs" />
-    <Compile Include="ViewModels\CityViewModel.cs" />
-    <Compile Include="ViewModels\ForecastViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelLocator.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\CityHeaderViewModel.cs" />
-    <Compile Include="Models\CitySelection.cs" />
-    <Compile Include="ViewModels\NewCityViewModel.cs" />
+    <Compile Include="AssisticantExtensions.cs" />
+    <Compile Include="Computed.cs" />
+    <Compile Include="ComputedJob.cs" />
+    <Compile Include="IUpdatable.cs" />
+    <Compile Include="MakeCommand.cs" />
+    <Compile Include="Observable.cs" />
+    <Compile Include="Precedent.cs" />
+    <Compile Include="RecycleBin.cs" />
+    <Compile Include="UpdateScheduler.cs" />
+    <Compile Include="WeakArray.cs" />
+    <Compile Include="WeakHashSet.cs" />
+    <Compile Include="Collections\ComputedList.cs" />
+    <Compile Include="Collections\ObservableList.cs" />
+    <Compile Include="Fields\ComputedSubscription.cs" />
+    <Compile Include="Fields\Computed.cs" />
+    <Compile Include="Fields\Observable.cs" />
+    <Compile Include="Binding\IInputSubscription.cs" />
+    <Compile Include="Binding\BindingManager.cs" />
+    <Compile Include="Binding\IValueConverter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\Portable\Assisticant.csproj">
-      <Project>{8B6EB900-35B0-41DA-A8DF-72E2752942A3}</Project>
-      <Name>Assisticant</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
