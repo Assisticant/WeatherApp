@@ -11,8 +11,8 @@ using Assisticant.Binding;
 
 namespace WeatherApp.Android
 {
-	[Activity(Label = "WeatherApp.Android", MainLauncher = true, Icon = "@drawable/icon")]
-	public class MainActivity : Activity
+	[Activity(Label = "WeatherApp.Detail")]
+	public class DetailActivity : Activity
 	{
         private CityViewModel _viewModel;
         private BindingManager _bindings = new BindingManager();
@@ -21,11 +21,10 @@ namespace WeatherApp.Android
 		{
 			base.OnCreate(bundle);
 
-			SetContentView(Resource.Layout.Main);
+			SetContentView(Resource.Layout.Detail);
 
             _bindings.Initialize(this);
 
-            ViewModelLocator.Initialize(Resources.GetString(Resource.String.MashapeKey));
             _viewModel = ViewModelLocator.Instance.City;
             _viewModel.Refresh();
 

@@ -42,15 +42,11 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="Assisticant.Android">
-      <HintPath>..\packages\Assisticant.Starter.1.0.12\lib\MonoAndroid\Assisticant.Android.dll</HintPath>
-    </Reference>
-    <Reference Include="Assisticant">
-      <HintPath>..\packages\Assisticant.Starter.1.0.12\lib\MonoAndroid\Assisticant.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="DetailActivity.cs" />
+    <Compile Include="MasterActivity.cs" />
+    <Compile Include="NewCityActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,15 +54,28 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
-    <None Include="packages.config" />
+    <AndroidResource Include="Resources\layout\Master.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\NewCity.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\layout\Detail.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\Assisticant.Android\Assisticant.Android.csproj">
+      <Project>{F68ADB8D-0AC6-43A2-BA33-9C1C1CDEDC0D}</Project>
+      <Name>Assisticant.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portable\Assisticant.csproj">
+      <Project>{8B6EB900-35B0-41DA-A8DF-72E2752942A3}</Project>
+      <Name>Assisticant</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WeatherApp.Logic\WeatherApp.Logic.csproj">
       <Project>{31C6CF10-A364-4095-B8C4-875CB69088BD}</Project>
       <Name>WeatherApp.Logic</Name>
@@ -74,5 +83,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Readme.txt" />
+    <AndroidResource Include="Resources\values\Keys.xml" />
   </ItemGroup>
 </Project>

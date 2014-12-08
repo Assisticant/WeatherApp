@@ -44,7 +44,6 @@
     <Compile Include="ViewModels\NewCityViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Portable\Assisticant.csproj">
       <Project>{8B6EB900-35B0-41DA-A8DF-72E2752942A3}</Project>

@@ -23,6 +23,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\Assisticant.Android.XML</DocumentationFile>
+    <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,6 +33,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Assisticant.Android.XML</DocumentationFile>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -58,15 +60,14 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Portable\Assisticant.csproj">
-      <Project>{8b6eb900-35b0-41da-a8df-72e2752942a3}</Project>
+      <Project>{8B6EB900-35B0-41DA-A8DF-72E2752942A3}</Project>
       <Name>Assisticant</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y $(TargetDir)$(TargetName).dll $(SolutionDir)NuGet\lib\MonoAndroid\
-xcopy /y $(TargetDir)$(TargetName).xml $(SolutionDir)NuGet\lib\MonoAndroid\
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
