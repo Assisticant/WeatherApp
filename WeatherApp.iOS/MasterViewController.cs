@@ -77,6 +77,11 @@ namespace WeatherApp.iOS
             base.ViewDidDisappear(animated);
         }
 
+        [Action("UnwindToMaster:")]
+        public void UnwindToMaster(UIStoryboardSegue segue)
+        {
+        }
+
         private void OnSelected(CityHeaderViewModel cityHeader)
         {
             if (cityHeader != null)
