@@ -51,10 +51,10 @@ namespace WeatherApp.iOS
                     bindings.BindText(
                         cell.TextLabel,
                         () => forecast.Text);
-                if (cell.DetailTextLabel != null)
-                    bindings.BindText(
-                        cell.DetailTextLabel,
-                        () => forecast.Description);
+	                if (cell.DetailTextLabel != null)
+	                    bindings.BindText(
+	                        cell.DetailTextLabel,
+	                        () => forecast.Description);
                 });
         }
 

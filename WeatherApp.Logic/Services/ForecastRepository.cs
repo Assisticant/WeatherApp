@@ -22,13 +22,13 @@ namespace WeatherApp.Logic.Services
 			_document = document;
 		}
 
-		public async Task Refresh()
+		public async Task Refresh(City city)
 		{
 			List<ForecastMemento> forecasts =
 				_storageService.LoadForecasts();
-			_document.LoadForecasts(forecasts);
+			city.LoadForecasts(forecasts);
 			await _weatherServiceAgent.Refresh();
-			forecasts = _document.SaveForecasts();
+			forecasts = city.SaveForecasts();
 			_storageService.SaveForecasts(forecasts);
 		}
 	}

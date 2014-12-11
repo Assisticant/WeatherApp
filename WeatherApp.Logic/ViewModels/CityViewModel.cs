@@ -41,7 +41,7 @@ namespace WeatherApp.Logic.ViewModels
         {
             try
             {
-                await _forecastRepository.Refresh();
+				await _forecastRepository.Refresh(_city);
                 _message.Value = null;
             }
             catch (Exception x)

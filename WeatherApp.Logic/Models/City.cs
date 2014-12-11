@@ -2,6 +2,7 @@
 using Assisticant.Fields;
 using Assisticant.Collections;
 using System.Collections.Generic;
+using WeatherApp.Logic.Services;
 
 namespace WeatherApp.Logic.Models
 {
@@ -31,6 +32,15 @@ namespace WeatherApp.Logic.Models
 		public void ClearForecasts()
 		{
 			_forecasts.Clear();
+		}
+
+		public void LoadForecasts(IEnumerable<ForecastMemento> forecastMementos)
+		{
+		}
+
+		public List<ForecastMemento> SaveForecasts()
+		{
+			return new List<ForecastMemento>();
 		}
 	}
 }

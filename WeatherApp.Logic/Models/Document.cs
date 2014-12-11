@@ -47,15 +47,6 @@ namespace WeatherApp.Logic.Models
 				})
 				.ToList();
 		}
-
-		public void LoadForecasts(IEnumerable<ForecastMemento> forecastMementos)
-		{
-		}
-
-		public List<ForecastMemento> SaveForecasts()
-		{
-			return new List<ForecastMemento>();
-		}
 	}
 }
 
