@@ -1,5 +1,7 @@
 ﻿using System;
 using WeatherApp.Logic.Models;
+using System.Collections.Generic;
+using WeatherApp.Logic.Services;
 
 namespace WeatherApp.Logic.ViewModels
 {
@@ -7,9 +9,14 @@ namespace WeatherApp.Logic.ViewModels
     {
         private readonly Document _document;
         private readonly CitySelection _selection;
+		private readonly IStorageService _storageService;
 
-        public NewCityViewModel(Document document, CitySelection selection)
+        public NewCityViewModel(
+			Document document,
+			CitySelection selection,
+			IStorageService storageService)
         {
+			_storageService = storageService;
             _document = document;
             _selection = selection;
         }

@@ -16,6 +16,17 @@ namespace WeatherApp.Logic.Services
 
 		public async Task Refresh()
 		{
+			await Task.Delay(2000);
+
+			foreach (var city in _document.Cities)
+			{
+				city.ClearForecasts();
+				var forecast = city.NewForecast();
+				forecast.High = 82;
+				forecast.Low = 64;
+				forecast.DayOfWeek = DayOfWeek.Wednesday;
+				forecast.Condition = "Partly cloudy";
+			}
 		}
 	}
 }

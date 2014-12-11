@@ -12,14 +12,14 @@ namespace WeatherApp.Logic.ViewModels
     public class CityViewModel
     {
         private readonly City _city;
-        private readonly WeatherServiceAgent _weatherServiceAgent;
+		private readonly ForecastRepository _forecastRepository;
 
         private Observable<string> _message = new Observable<string>();
 
-        public CityViewModel(City city, WeatherServiceAgent weatherServiceAgent)
+		public CityViewModel(City city, ForecastRepository forecastRepository)
         {
             _city = city;
-            _weatherServiceAgent = weatherServiceAgent;
+            _forecastRepository = forecastRepository;
         }
 
         public string Name
@@ -41,7 +41,7 @@ namespace WeatherApp.Logic.ViewModels
         {
             try
             {
-                await _weatherServiceAgent.Refresh();
+                await _forecastRepository.Refresh();
                 _message.Value = null;
             }
             catch (Exception x)

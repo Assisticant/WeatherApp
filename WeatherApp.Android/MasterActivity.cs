@@ -26,9 +26,10 @@ namespace WeatherApp.Android
 
             SetContentView(Resource.Layout.Master);
 
-            ViewModelLocator.Initialize(Resources.GetString(Resource.String.MashapeKey));
+			_bindings.Initialize(this);
+            ViewModelLocator.Initialize(Resources.GetString(Resource.String.MashapeKey),
+				new AndroidStorageService());
 
-            _bindings.Initialize(this);
             _viewModel = ViewModelLocator.Instance.Main;
 
             _viewModel.SelectedCityHeader = null;

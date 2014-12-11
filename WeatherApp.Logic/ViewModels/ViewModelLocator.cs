@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Logic.Models;
 using WeatherApp.Logic.Services;
+using Assisticant.Binding;
 
 namespace WeatherApp.Logic.ViewModels
 {
@@ -12,25 +13,38 @@ namespace WeatherApp.Logic.ViewModels
     {
         public static ViewModelLocator Instance { get; private set; }
 
-        public static void Initialize(string mashapeKey)
+		public static void Initialize(string mashapeKey, IStorageService storageService)
         {
             if (Instance == null)
-                Instance = new ViewModelLocator(mashapeKey);
+				Instance = new ViewModelLocator(mashapeKey, storageService);
         }
 
         private readonly Document _document;
         private readonly WeatherServiceAgent _weatherServiceAgent;
         private readonly CitySelection _citySelection;
+		private readonly IStorageService _storageService;
+		private readonly ForecastRepository _forecastRepository;
 
-        private ViewModelLocator(string mashapeKey)
+		private BindingManager _bindings = new BindingManager();
+
+		private ViewModelLocator(string mashapeKey, IStorageService storageService)
         {
+			_storageService = storageService;
+
             _document = new Document();
             _citySelection = new CitySelection();
             _weatherServiceAgent = new WeatherServiceAgent(_document);
+			_forecastRepository = new ForecastRepository(
+				_storageService,
+				_weatherServiceAgent,
+				_document);
 
-            // For now, initialize the document to one city.
-            var city = _document.NewCity();
-            city.Name = "Dallas";
+			List<CityMemento> cities = _storageService.LoadCities();
+			_document.Load(cities);
+
+			_bindings.Bind(
+				() => _document.Save(),
+				c => _storageService.SaveCities(c));
         }
 
         public MainViewModel Main
@@ -48,7 +62,9 @@ namespace WeatherApp.Logic.ViewModels
                 if (_citySelection.SelectedCity == null)
                     return null;
 
-                return new CityViewModel(_citySelection.SelectedCity, _weatherServiceAgent);
+				return new CityViewModel(
+					_citySelection.SelectedCity,
+					_forecastRepository);
             }
         }
 
@@ -56,7 +72,10 @@ namespace WeatherApp.Logic.ViewModels
         {
             get
             {
-                return new NewCityViewModel(_document, _citySelection);
+                return new NewCityViewModel(
+					_document,
+					_citySelection,
+					_storageService);
             }
         }
     }
